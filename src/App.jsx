@@ -28,6 +28,8 @@ function App() {
             <LoveBot />
             <AIPoemGenerator />
             <WhyILoveYou />
+            <FuturePredictor />
+            <LoveTranslator />
           </div>
         </div>
       </section>
