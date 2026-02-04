@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactPlayer from 'react-player';
 import Hero from './components/Hero';
 import OurStory from './components/OurStory';
 import Gallery from './components/Gallery';
@@ -12,6 +13,8 @@ import LoveTranslator from './components/features/LoveTranslator';
 import './App.css';
 
 function App() {
+  const [play, setPlay] = useState(false);
+
   return (
     <div className="App">
       <Hero />
@@ -60,11 +63,7 @@ function App() {
       {/* Music Player */}
       <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 100 }}>
         <button
-          onClick={() => {
-            const audio = document.getElementById('bg-music');
-            if (audio.paused) audio.play().catch(e => alert("Please interact with the page first or add a music file!"));
-            else audio.pause();
-          }}
+          onClick={() => setPlay(!play)}
           style={{
             backgroundColor: 'var(--color-white)',
             borderRadius: '50%',
@@ -74,15 +73,23 @@ function App() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '1.5rem'
+            fontSize: '1.5rem',
+            cursor: 'pointer'
           }}
-          title="Play Music"
+          title={play ? "Pause Music" : "Play 'Blue' by Yung Kai"}
         >
-          🎵
+          {play ? '⏸️' : '🎵'}
         </button>
-        <audio id="bg-music" loop>
-          <source src="/assets/music.mp3" type="audio/mpeg" />
-        </audio>
+        <div style={{ display: 'none' }}>
+          <ReactPlayer
+            url='https://www.youtube.com/watch?v=4adZ7AguVcw'
+            playing={play}
+            loop={true}
+            volume={0.5}
+            width="0"
+            height="0"
+          />
+        </div>
       </div>
     </div>
   );
