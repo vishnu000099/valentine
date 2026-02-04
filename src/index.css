@@ -1,0 +1,74 @@
+:root {
+  /* Color Palette */
+  --color-cream: #FFFDF5;
+  --color-blush: #FFC4C4;
+  --color-soft-pink: #FEE7E7;
+  --color-warm-beige: #F5E6D3;
+  --color-gold: #D4AF37;
+  --color-text-dark: #4A3B32;
+  --color-text-light: #8C7B70;
+  --color-white: #FFFFFF;
+  --shadow-soft: 0 10px 30px -10px rgba(74, 59, 50, 0.1);
+
+  /* Typography */
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Playfair Display', serif;
+
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: --font-body;
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-family: 'Playfair Display', serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
